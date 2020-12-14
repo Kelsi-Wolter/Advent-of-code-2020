@@ -40,8 +40,37 @@ def password_checker(password):
 
     return valid
 
-answer = 0 
+answer_1 = 0 
 for password in passwords:
-    answer += password_checker(password)
+    answer_1 += password_checker(password)
 
-print(answer)
+print(answer_1)
+
+def password_checker_2(password):
+
+    valid = 0
+    slice_1 = password.split(':')
+    legend = slice_1[0]
+    word = slice_1[1].strip()
+
+    legend_slice = legend.split()
+    index_slice = legend_slice[0].split('-')
+    index_1 = int(index_slice[0]) - 1
+    index_2 = int(index_slice[1]) - 1
+    letter = legend_slice[1]
+    
+
+    if word[index_1] == letter and word[index_2] != letter:
+        valid += 1
+        
+    elif word[index_1] != letter and word[index_2] == letter:
+        valid += 1
+        
+
+    return valid
+
+answer_2 = 0
+for password in passwords:
+    answer_2 += password_checker_2(password)
+
+print(f'Answer 2 is {answer_2}')
