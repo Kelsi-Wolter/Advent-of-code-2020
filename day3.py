@@ -29,8 +29,8 @@ while start <= hill:
     route = current_line[current_spot]
     tree_list.append(route)
     last_index_of_line = len(current_line) - 1
-    current_spot += 3
-    start += 1
+    current_spot += 1
+    start += 2
     
     if current_spot > last_index_of_line:
         current_spot = current_spot - last_index_of_line - 1
