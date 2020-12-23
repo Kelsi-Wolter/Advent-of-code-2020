@@ -29,20 +29,23 @@ for text in text_file:
 
 int_set_list = []
 for li in whole_list:
-    prev_set = set()
+    if len(li) > 1:
+        prev_set = set()
 
-    for li_set in li:
+        for li_set in li:
+            set_int = li_set.intersection((prev_set))
+            prev_set = li_set
         
-        set_int = li_set.intersection((prev_set))
-        prev_set = li_set
-    
+    else:
+        set_int = li[0]
+       
     int_set_list.append(set_int)
 
 total = 0
 for int_set in int_set_list:
     set_len = len(int_set)
-    
     total += set_len
+    
 
 print(total)
     
